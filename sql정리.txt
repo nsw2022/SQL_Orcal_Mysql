@@ -1,0 +1,7 @@
+오라클 자료형
+한글 - 3byte, 영어 - 1byte
+
+char(10) - 고정길이 'abc' - 10byte
+varchar2(10) - 가변길이 'abc' - 3byte
+
+number(3)
