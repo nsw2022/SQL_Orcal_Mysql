@@ -19,6 +19,8 @@ insert into employee VALUES (102, '박달', 1500000, SYSDATE , '남자','1002');
 insert into employee VALUES (103, '강하늘', 3500000, SYSDATE , '','1003');
 insert into employee VALUES (104, '양우주', 4500000, SYSDATE , '','1000');
 insert into employee VALUES (105, '강남', 2600000, SYSDATE , '남자','1000');
+insert into employee VALUES (106,'이해',2500000, SYSDATE ,'남자','1000');
+
 
 -- 참조 무경성 제약 위배.
 -- 1. 사원이 소속된 부서를 삭제할때 '자식 레코드가 있다'는 오류 발생
