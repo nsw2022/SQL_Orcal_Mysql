@@ -1,12 +1,12 @@
--- ³¯Â¥ ÀÚ·áÇü
+-- ë‚ ì§œ ìë£Œí˜•
 create table ex2(
     col_date DATE,
     col_timestamp TIMESTAMP
 );
 
--- ÀÚ·á »ğÀÔ
+-- ìë£Œ ì‚½ì…
 INSERT INTO ex2 VALUES (sysdate, systimestamp);
 INSERT INTO ex2 VALUES (sysdate, systimestamp);
 
--- ÀÚ·á °Ë»ö
-select * from ex2;
+-- ìë£Œ ê²€ìƒ‰
+select * from ex2;;

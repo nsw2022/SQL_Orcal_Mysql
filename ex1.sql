@@ -1,15 +1,14 @@
--- ¹®ÀÚ ÀÚ·áÇüÀÇ ºñ±³
+-- ë¬¸ì ìë£Œí˜•ì˜ ë¹„êµ
 CREATE TABLE ex1(
-    column1 CHAR(10),      -- °íÁ¤±æÀÌ ÀÚ·áÇü
-    column2 VARCHAR2(10)   -- °¡º¯±æÀÌ ÀÚ·áÇü
+    column1 CHAR(10),      -- ê³ ì •ê¸¸ì´ ìë£Œí˜•
+    column2 VARCHAR2(10)   -- ê°€ë³€ê¸¸ì´ ìë£Œí˜•
 );
 
--- ÀÚ·á Ãß°¡
+-- ìë£Œ ì¶”ê°€
 insert into ex1(column1, column2) VALUES ('abc','abc');
-insert into ex1 VALUES ('°­³²¿ª','°­³²');
+insert into ex1 VALUES ('ê°•ë‚¨ì—­','ê°•ë‚¨');
 
 
--- ÀÚ·á Á¶È¸
+-- ìë£Œ ì¡°íšŒ
 select column1, length(column1) len1,column2, length(column2) len2 from ex1;
 commit;
-

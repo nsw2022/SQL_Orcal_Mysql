@@ -1,10 +1,10 @@
--- ºÎ¼­Å×ÀÌºí°ú »ç¿øÅ×ÀÌºí Á¶ÀÎ(join)
--- join - 2°³ ÀÌ»óÀÇ Å×ÀÌºíÀÌ ¿¬°áÇÏ¿© »ç¿ëÇÏ´Â ±â¹ý
+-- ë¶€ì„œí…Œì´ë¸”ê³¼ ì‚¬ì›í…Œì´ë¸” ì¡°ì¸(join)
+-- join - 2ê°œ ì´ìƒì˜ í…Œì´ë¸”ì´ ì—°ê²°í•˜ì—¬ ì‚¬ìš©í•˜ëŠ” ê¸°ë²•
 
 select * from dept;
 select * from employee;
 
--- »ç¿ø¹øÈ£, »ç¿ø¸í, ºÎ¼­¹øÈ£, ºÎ¼­¸íÀ» Ãâ·ÂÇÏ½Ã¿À
+-- ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ë¶€ì„œë²ˆí˜¸, ë¶€ì„œëª…ì„ ì¶œë ¥í•˜ì‹œì˜¤
 SELECT emp.empno, emp.ename, emp.deptno, dep.deptname
 FROM employee emp, dept dep
 where emp.deptno = dep.deptno;

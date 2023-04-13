@@ -1,39 +1,39 @@
--- »ç¿ø Å×ÀÌºí (ºÎ¼­¿Í °ü°è¸¦ ¸ÎÀº)
+-- ì‚¬ì› í…Œì´ë¸” (ë¶€ì„œì™€ ê´€ê³„ë¥¼ ë§ºì€)
 CREATE TABLE employee(
-    -- Ä®·³ ÀÌ¸§ ÀÚ·áÇü
-    empno     NUMBER(3) PRIMARY key,       -- »ç¿ø¹øÈ£
-    ename   VARCHAR2(20) not null,       -- »ç¿øÀÌ¸§
-    sal     NUMBER(10),                  -- ±Þ¿©
-    createdate  DATE DEFAULT SYSDATE,     -- µî·ÏÀÏ
+    -- ì¹¼ëŸ¼ ì´ë¦„ ìžë£Œí˜•
+    empno     NUMBER(3) PRIMARY key,       -- ì‚¬ì›ë²ˆí˜¸
+    ename   VARCHAR2(20) not null,       -- ì‚¬ì›ì´ë¦„
+    sal     NUMBER(10),                  -- ê¸‰ì—¬
+    createdate  DATE DEFAULT SYSDATE,     -- ë“±ë¡ì¼
     gender VARCHAR2(10),
-    deptno  VARCHAR2(4),                -- ¿Ü·¡Å°                 
-    -- ¿Ü·¡Å° (FOREIGN KEY) Á¦¾àÁ¶°Ç
+    deptno  VARCHAR2(4),                -- ì™¸ëž˜í‚¤                 
+    -- ì™¸ëž˜í‚¤ (FOREIGN KEY) ì œì•½ì¡°ê±´
     CONSTRAINT emp_fk FOREIGN KEY(deptno) 
     REFERENCES dept(deptno)
-    -- on delete cascade (ºÎ¼­¸¦ »èÁ¦ÇÏ¸é ÂüÁ¶ÇÏ°í ÀÖ´Â »ç¿øµµ »èÁ¦)
+    -- on delete cascade (ë¶€ì„œë¥¼ ì‚­ì œí•˜ë©´ ì°¸ì¡°í•˜ê³  ìžˆëŠ” ì‚¬ì›ë„ ì‚­ì œ)
 );
 
-insert into employee VALUES (100,'ÀÌ°­',2500000, SYSDATE ,'³²ÀÚ','1000');
-insert into employee VALUES (101, 'ÀÌ»ê', 2000000, SYSDATE , '¿©ÀÚ','1001');
-insert into employee VALUES (102, '¹Ú´Þ', 1500000, SYSDATE , '³²ÀÚ','1002');
-insert into employee VALUES (103, '°­ÇÏ´Ã', 3500000, SYSDATE , '','1003');
-insert into employee VALUES (104, '¾ç¿ìÁÖ', 4500000, SYSDATE , '','1000');
-insert into employee VALUES (105, '°­³²', 2600000, SYSDATE , '³²ÀÚ','1000');
+insert into employee VALUES (100,'ì´ê°•',2500000, SYSDATE ,'ë‚¨ìž','1000');
+insert into employee VALUES (101, 'ì´ì‚°', 2000000, SYSDATE , 'ì—¬ìž','1001');
+insert into employee VALUES (102, 'ë°•ë‹¬', 1500000, SYSDATE , 'ë‚¨ìž','1002');
+insert into employee VALUES (103, 'ê°•í•˜ëŠ˜', 3500000, SYSDATE , '','1003');
+insert into employee VALUES (104, 'ì–‘ìš°ì£¼', 4500000, SYSDATE , '','1000');
+insert into employee VALUES (105, 'ê°•ë‚¨', 2600000, SYSDATE , 'ë‚¨ìž','1000');
 
--- ÂüÁ¶ ¹«°æ¼º Á¦¾à À§¹è.
--- 1. »ç¿øÀÌ ¼Ò¼ÓµÈ ºÎ¼­¸¦ »èÁ¦ÇÒ¶§ 'ÀÚ½Ä ·¹ÄÚµå°¡ ÀÖ´Ù'´Â ¿À·ù ¹ß»ý
--- 2. ºÎ¼­¹øÈ£°¡ ¾ø´Â »ç¿ø ÀÚ·á¸¦ Ãß°¡ÇÒ ¶§ 'ºÎ¸ðÅ°°¡ ¾ø´Ù´Â ¿À·ù ¹ß»ý'
+-- ì°¸ì¡° ë¬´ê²½ì„± ì œì•½ ìœ„ë°°.
+-- 1. ì‚¬ì›ì´ ì†Œì†ëœ ë¶€ì„œë¥¼ ì‚­ì œí• ë•Œ 'ìžì‹ ë ˆì½”ë“œê°€ ìžˆë‹¤'ëŠ” ì˜¤ë¥˜ ë°œìƒ
+-- 2. ë¶€ì„œë²ˆí˜¸ê°€ ì—†ëŠ” ì‚¬ì› ìžë£Œë¥¼ ì¶”ê°€í•  ë•Œ 'ë¶€ëª¨í‚¤ê°€ ì—†ë‹¤ëŠ” ì˜¤ë¥˜ ë°œìƒ'
 
--- »ç¿øÀÚ·á °Ë»ö
+-- ì‚¬ì›ìžë£Œ ê²€ìƒ‰
 select * from employee;
 --drop TABLE employee;
 desc employee;
 
--- ¼ºº°ÀÌ ³²ÀÚÀÌ¸é¼­ ±Þ¿©°¡ 250¸¸¿ø ÀÌ»óÀÎ »ç¿øÀ» °Ë»öÇÏ½Ã¿À
+-- ì„±ë³„ì´ ë‚¨ìžì´ë©´ì„œ ê¸‰ì—¬ê°€ 250ë§Œì› ì´ìƒì¸ ì‚¬ì›ì„ ê²€ìƒ‰í•˜ì‹œì˜¤
 select * from employee 
-where gender = '³²ÀÚ' and sal >=2500000;
+where gender = 'ë‚¨ìž' and sal >=2500000;
 
--- ±Þ¿©°¡ 200¸¸¿ø ÀÌ»ó 300¸¸¿ø ÀÌÇÏÀÎ »ç¿øÀ» °Ë»öÇÏ½Ã¿À
+-- ê¸‰ì—¬ê°€ 200ë§Œì› ì´ìƒ 300ë§Œì› ì´í•˜ì¸ ì‚¬ì›ì„ ê²€ìƒ‰í•˜ì‹œì˜¤
 select * from employee
 where sal >= 2000000 and sal <=3000000 ;
 
@@ -42,22 +42,21 @@ select * from employee
 where sal
 BETWEEN 2000000 and 3000000;
 
--- ¹®ÀÚ¿­ °Ë»ö : ÀÏºÎ ¹®ÀÚ Æ÷ÇÔ LICK %¹®ÀÚ%
--- ¼ºÀÌ 'ÀÌ'ÀÎ »ç¿øÀ» °Ë»öÇÏ½Ã¿À.
-select * from employee WHERE employee.ename like 'ÀÌ%';
+-- ë¬¸ìžì—´ ê²€ìƒ‰ : ì¼ë¶€ ë¬¸ìž í¬í•¨ LICK %ë¬¸ìž%
+-- ì„±ì´ 'ì´'ì¸ ì‚¬ì›ì„ ê²€ìƒ‰í•˜ì‹œì˜¤.
+select * from employee WHERE employee.ename like 'ì´%';
 
--- »ç¿ø ÃÑÀÎ¿ø¼ö¸¦ ±¸ÇÏ½Ã¿À
-select count(*) as ÀÎ¿ø¼ö from employee;
+-- ì‚¬ì› ì´ì¸ì›ìˆ˜ë¥¼ êµ¬í•˜ì‹œì˜¤
+select count(*) as ì¸ì›ìˆ˜ from employee;
 
--- Áßº¹¾øÀÌ ºÎ¼­¹øÈ£¸¦ °Ë»öÇÏ½Ã¿À (DISTINCT Å°¿öµå)
+-- ì¤‘ë³µì—†ì´ ë¶€ì„œë²ˆí˜¸ë¥¼ ê²€ìƒ‰í•˜ì‹œì˜¤ (DISTINCT í‚¤ì›Œë“œ)
 select DISTINCT employee.deptno from employee; 
 
--- GROUP BY Àý (¼Ò¼Óµî ±×·ìÈ­) - ±×·ì¹ÙÀÌÀÏ¶© Á¶°ÇÀý·Î Having À» »ç¿ë
--- ºÎ¼­º° ±Þ¿© ÃÑ¾×À» ±¸ÇÏ½Ã°í
-select deptno ºÎ¼­, sum(sal) ±Þ¿©ÃÑ¾×, AVG(sal) ±Þ¿©Æò±Õ
+-- GROUP BY ì ˆ (ì†Œì†ë“± ê·¸ë£¹í™”) - ê·¸ë£¹ë°”ì´ì¼ë• ì¡°ê±´ì ˆë¡œ Having ì„ ì‚¬ìš©
+-- ë¶€ì„œë³„ ê¸‰ì—¬ ì´ì•¡ì„ êµ¬í•˜ì‹œê³ 
+select deptno ë¶€ì„œ, sum(sal) ê¸‰ì—¬ì´ì•¡, AVG(sal) ê¸‰ì—¬í‰ê· 
 from employee 
 GROUP BY deptno
 HAVING AVG(sal) >= 3000000
 order by AVG(sal) desc;
-
 

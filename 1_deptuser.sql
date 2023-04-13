@@ -1,38 +1,37 @@
--- ºÎ¼­ Å×ÀÌºí(dept)
+-- ë¶€ì„œ í…Œì´ë¸”(dept)
 CREATE TABLE dept(
     -- ?????? ?????
     deptno  VARCHAR2(4) PRIMARY KEY,
     deptname  VARCHAR2(20) NOT NULL,
     office  VARCHAR2(10)    
 );
--- ÀÌ»ó Çö»ó ÇØ°á
--- ºÎ¼­ÄÚµå : ½Äº°ÀÚ(Identifier) - ±âº»Å°(Primary Key)¼Ó¼º Ãß°¡
--- ºÎ¼­ ¸í : ÇÊ¼ö ÀÔ·Â »çÇ× (not null ¼Ó¼º Ãß°¡)
+-- ì´ìƒ í˜„ìƒ í•´ê²°
+-- ë¶€ì„œì½”ë“œ : ì‹ë³„ìž(Identifier) - ê¸°ë³¸í‚¤(Primary Key)ì†ì„± ì¶”ê°€
+-- ë¶€ì„œ ëª… : í•„ìˆ˜ ìž…ë ¥ ì‚¬í•­ (not null ì†ì„± ì¶”ê°€)
 DESC dept;
  
--- ºÎ¼­ Ãß°¡
-INSERT INTO dept(deptno, deptname, office) VALUES ('1000', 'ÀÎ»çÆÀ', '¼­¿ï');
-INSERT INTO dept(deptno, deptname, office) VALUES ('1001', 'Àü»êÆÀ', '¼ö¿ø');
-INSERT INTO dept VALUES ('1002', 'Àü»êÆÀ', '¼ö¿ø');
-INSERT INTO dept(deptno, deptname) VALUES ('1003', '¿µ¾÷ÆÀ');
+-- ë¶€ì„œ ì¶”ê°€
+INSERT INTO dept(deptno, deptname, office) VALUES ('1000', 'ì¸ì‚¬íŒ€', 'ì„œìš¸');
+INSERT INTO dept(deptno, deptname, office) VALUES ('1001', 'ì „ì‚°íŒ€', 'ìˆ˜ì›');
+INSERT INTO dept VALUES ('1002', 'ì „ì‚°íŒ€', 'ìˆ˜ì›');
+INSERT INTO dept(deptno, deptname) VALUES ('1003', 'ì˜ì—…íŒ€');
 
--- ½ÇÇà ¿Ï·á ; Æ®·£Àè¼ÇÀÇ ÇÑ ºÎºÐ
+-- ì‹¤í–‰ ì™„ë£Œ ; íŠ¸ëžœìž­ì…˜ì˜ í•œ ë¶€ë¶„
 COMMIT;
 
--- ½ÇÇà ¿Ï·á : Æ®·£Àè¼ÇÀÇ ÇÑ ºÎºÐ
+-- ì‹¤í–‰ ì™„ë£Œ : íŠ¸ëžœìž­ì…˜ì˜ í•œ ë¶€ë¶„
 SELECT * FROM dept;
-SELECT deptno as ºÎ¼­ÄÚµå, deptname as ºÎ¼­¸í FROM dept;
+SELECT deptno as ë¶€ì„œì½”ë“œ, deptname as ë¶€ì„œëª… FROM dept;
 
 SELECT * FROM dept;
 --WHERE deptno = '1002';
 
--- ºÎ¼­¹øÈ£°¡ 1002ÀÎ ºÎ¼­¸¦ È¸°èÆÀÀ¸·Î º¯°æ
+-- ë¶€ì„œë²ˆí˜¸ê°€ 1002ì¸ ë¶€ì„œë¥¼ íšŒê³„íŒ€ìœ¼ë¡œ ë³€ê²½
 UPDATE dept 
-SET deptname='È¸°èÆÀ' where deptno='1002';
+SET deptname='íšŒê³„íŒ€' where deptno='1002';
 
-/* ºÎ¼­ Å×ÀÌºí »èÁ¦ */
+/* ë¶€ì„œ í…Œì´ë¸” ì‚­ì œ */
 DROP TABLE dept;
 
 delete dept where dept.deptno = '1003';
-
 
