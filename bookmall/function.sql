@@ -83,6 +83,16 @@ select sysdate + 10 from dual;
 -- 20일전의 날짜 출력
 select sysdate - 20 from dual;
 
+-- 특정한 날짜 ex) 4월 1일에서 10일 후
+-- 문자형--> 날짜형 to_date()함수를 쓰면 가능
+SELECT to_date('2023/04/01') + 20 from dual;
+
+-- 입사일이 : 2022-1-1 퇴사일 : 2023-1-31(월수:계산)
+select
+    round(MONTHS_BETWEEN(to_date('2023-1-1'),
+    to_date('2022-1-1')),0) 총개월수
+from dual;
+
 -- 3개월 후의 날짜 출력 특이하게 빼는건 따로 없어서 add에서 빼줘야함
 select add_months(sysdate,3) 결과 from dual;
 select add_months(sysdate,-3) 결과 from dual;
