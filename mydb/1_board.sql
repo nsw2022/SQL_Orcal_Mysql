@@ -43,6 +43,27 @@ update board set writer='admin' where bno=2;
 -- 3번 게시글 삭제하시오
 delete board where board.bno=3;
 
+select * from board order by regdate desc;
+
+-- 재귀 복사(자료 삽입)
+-- INSERT INTO(테이블) (SELECT 칼럼 FORM 테이블이름)
+INSERT INTO board(bno, title, writer, content)
+(select seq.NEXTVAL, title, writer, content FROM board);
+
+SELECT ROWNUM,bno,title,content
+FROM board
+WHERE ROWNUM > 0 AND ROWNUM <=10;
+--WHERE ROWNUM > 11 AND ROWNUM <=20; error 반드시 ROWNUM은 1을 포함해야함
+
+-- 페이지 처리
+SELECT * 
+FROM (SELECT ROWNUM rn,bno,title,content
+     FROM board)
+WHERE rn > 10 AND ROWNUM <=20; -- rownum의 별칭을 사용하면 가능함
+
+-- rowid
+-- 데이터를 구분하는 유일한 값
+
 select * from board;
 desc board;
 
