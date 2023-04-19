@@ -63,6 +63,10 @@ WHERE rn > 10 AND ROWNUM <=20; -- rownum의 별칭을 사용하면 가능함
 
 -- rowid
 -- 데이터를 구분하는 유일한 값
+-- rowid를 통해서 데이터 파일, 어느 블럭에 저장되어 있는 지 알 수 있음
+select rowid, bno, title, content
+from board
+where rowid = 'AAATVSAAHAAAAFcAAA';
 
 select * from board;
 desc board;
