@@ -40,4 +40,19 @@ ROWNUM
 
 식별관계 - 실선
 부모 엔티티가 주키(PK)가 주식별자로 포함된 경우
+=============================================================
+join
+ORACLE SQL - WHERE 기본키=외래키
+ANSI SQL ( 표준 SQL )
+INNER JOIN ON~
+
+DDL(데이터 정의어) - CREATE, ALTER, DROP
+DML(데이터 조작어) - SELECT, INSET, UPDATE, DELETE
+DCL(데이터 제어어) - GRANT, REVOKE
+GRANT(권한설정)
+TCL(트랜잭션) - COMMIT, ROLLBACK
+
+테이블간(집합) 연산
+더하기(UNION) 
+빼기(MINUS)
 

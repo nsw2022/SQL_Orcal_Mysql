@@ -1,17 +1,28 @@
 -- 숫자 타입 함수
 -- 제공된 테이블 : dual
-select ABS(-10), abs(10) from dual;
+SELECT ABS(-10), abs(10) FROM dual;
 
 -- 반올림 : ROUND(수, 자리수)
-select round(3.875,2) from DUAL;
+SELECT round(3.875,2) FROM DUAL;
+
+-- 버림 : TRUNC(수, 자리수)
+SELECT trunc(3.875, 1) FROM dual;
 
 -- sal을 30일로 나눈후 소수 자리수에 반올림한 값 출력
-select sal 급여, 
+SELECT sal 급여, 
     sal/30 일급 ,
     ROUND( sal/30,1) 결과1,
     ROUND( sal/30,0) 결과2,
     ROUND( sal/30,-1) 결과3
-from employee;
+FROM employee;
+
+-- sal을 30일로 나눈후 소수 자리수 버림한 값 출력
+SELECT sal 급여, 
+    sal/30 일급 ,
+    trunc( sal/30,1) 결과1,
+    trunc( sal/30,0) 결과2,
+    trunc( sal/30,-1) 결과3
+FROM employee;
 
 -- sal을 30일로 나눈후 소수 자리수에 따라 절삭(버림) 반올림한 값 출력
 select sal 급여, 
@@ -30,8 +41,12 @@ from employee;
 select * from orders;
 
 
--- 고객별 평균 주문 금액을 백원 단위로 반올림한 값을 구하시오
-select custid, ROUND(AVG(saleprice),-2) 평균주문금액 
+-- 고객별 평균 주문 금액을 십원 단위로 반올림한 값을 구하시오
+select custid 고객번호, ROUND(AVG(saleprice),-2) 평균주문금액 
+from orders
+GROUP BY custid;
+
+select custid 고객번호, sum(saleprice) 합계 , ROUND(AVG(saleprice),-2) 평균주문금액 
 from orders
 GROUP BY custid;
 
@@ -73,7 +88,7 @@ from book;
 -- 굿스포츠에서 출판한 도서의 제목과 제목의 문자 수, 바이트 수를 검색
 -- 한글 3Byte, 영어, 특수기호 - 1Byte
 select bookname,
-       length(bookname),
+       length(bookname) 문자수,
        lengthb(bookname) 바이트수
 from book
 where publisher = '굿스포츠';
