@@ -3,9 +3,12 @@
 
 char(10) - 고정길이 'abc' - 10byte
 varchar2(10) - 가변길이 'abc' - 3byte
-
 number(3)
 
+SQLite
+문자 - TEXT
+숫자 - INTEGER
+날짜 - TIMESTAMP
 =============================================================
 서브쿼리 join 정리
 차이점
@@ -56,3 +59,6 @@ TCL(트랜잭션) - COMMIT, ROLLBACK
 더하기(UNION) 
 빼기(MINUS)
 
+=============================================================
+ORDERY 
+INDEX
