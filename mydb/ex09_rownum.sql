@@ -50,14 +50,9 @@ select rownum, name, score from
     from ex_score
     ORDER by score desc)
 where rownum <= 5;
--- 위순서로 쿼리문이 진행
---SELECT
---FROM
---WHERE
---GROUP BY
---HAVING
---ORDER BY
---LIMIT / OFFSET (또는 TOP)
+-- 위순서로 쿼리문이 진행 
+--FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY
+
 
 -- 성적 순위 rank 공동일경우 다음숫자 뺌 
 --         dense_rank() 공동일경우다음숫자안뺌
