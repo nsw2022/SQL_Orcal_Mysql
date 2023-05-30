@@ -8,6 +8,7 @@ CREATE TABLE person(
 );
 
 INSERT INTO person VALUES('clould','cloud123','구름이',120);
+INSERT INTO person VALUES('today','today123','투데이',5);
 commit;
 
 SELECT * FROM person;
