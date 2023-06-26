@@ -23,14 +23,58 @@ create table t_board(
     hit NUMBER DEFAULT 0,
     memberid VARCHAR2(20) NOT NULL,
     CONSTRAINT FK_MemberBoard FOREIGN KEY (memberid)
-    REFERENCES t_member(memberid)
+    REFERENCES t_member(memberid) ON DELETE CASCADE
 );
 
 -- 글번호, 글제목, 글내용, 작성일, 수정일, 조회수, 아이디(외래키)
 -- 자동순번(시퀀스 오토인크리먼트)
 CREATE SEQUENCE b_seq;
 
+-- 시퀀스의 캐쉬초기화
+ALTER SEQUENCE b_seq NOCACHE;
+
+-- 1로 초기화해줌 사용해본결과 0으로 초기화하거나 
+-- 걍 삭제하고 다시만드는게 편함
+ALTER SEQUENCE b_seq INCREMENT by 1;
+
+
+--drop SEQUENCE b_seq;
+
+
 INSERT INTO t_board(bnum, title, content, memberId)
 VALUES(b_seq.nextval, '가입인사','안녕하세요. 반갑습니다.', 'cloud');
 
 select * from t_board;
+drop TABLE t_board;
+
+update t_board set hit=hit+1 where bnum=1;
+
+-- id 중복체크
+select count(*) as result 
+from t_member
+where memberid = 'cloud';
+
+-- id 중복체크
+select decode(count(*), 1 , 'true','false') as result 
+from t_member
+where memberid = 'cloud';
+
+
+ALTER TABLE t_board add fileupload VARCHAR2(100);
+
+--페이징 처리
+SELECT ROWNUM, t_board. *
+FROM t_board 
+WHERE ROWNUM >= 1 AND ROWNUM <= 10
+ORDER BY bnum DESC;
+
+SELECT *
+FROM (
+    SELECT ROWNUM AS rn, t_board.*
+    FROM t_board
+    ORDER BY bnum DESC
+) WHERE rn >= 11 AND rn <= 20;
+
+-- 총행수
+select count(*) from t_board;
+
