@@ -74,7 +74,15 @@ FROM (
     FROM t_board
     ORDER BY bnum DESC
 ) WHERE rn >= 11 AND rn <= 20;
+--페이징 처리2(인라인뷰 - 중첩쿼리(서브쿼리))
+select * 
+from (select rownum rn, board.*
+      from (select * from t_board order by bnum desc) board)
+where rn >= 1 and rn <= 10;
+
 
 -- 총행수
 select count(*) from t_board;
+
+drop table t_board;
 
