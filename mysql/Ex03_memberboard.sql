@@ -58,9 +58,17 @@ values('xx','ttss','test11');
 insert into t_board(title, content, memberid)
 values('qq','rr','test11');
 
+
+SELECT * FROM t_board
+ORDER BY bnum DESC
+LIMIT 3;
+
 -- limit(시작행, 게시글 수)
 select * from t_board order by bnum desc limit 0, 10;
 select * from t_board order by bnum desc limit 11, 20;
 select * from t_member;
 select * from t_reply;
-drop table t_board;
+select * from t_board;
+
+select count(title) from t_board where title like '%인사%' 
+order by bnum desc limit 0, 10;
